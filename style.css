@@ -1,0 +1,518 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background-image {
+    background-image: url('./assets/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+    cursor: pointer;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    margin: 0 20px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #ff5733;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -200px;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 200px;
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        transition: left 0.3s ease;
+        z-index: 1001;
+    }
+
+    .navigation.show {
+        left: 0;
+    }
+}
+
+/* The sidepanel menu */
+.sidepanel {
+  margin-top: 64px;
+  height: 100%; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+  position: absolute;
+  top: 40px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1002; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.search-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1001;
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    width: 300px;
+}
+
+.search-container button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #333;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #ff5733;
+}
+/* styles.css */
+/* ... existing styles ... */
+
+.search-container {
+    position: fixed;
+    top: 40%; /* Adjusted to be slightly higher on the page */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1001;
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.search-container form:hover {
+    transform: scale(1.05);
+}
+
+.search-container input[type="text"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    width: 300px;
+    outline: none;
+    transition: width 0.3s ease-in-out;
+}
+
+.search-container input[type="text"]:focus {
+    width: 350px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.search-container button:active {
+    transform: scale(0.95);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1002; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* styles.css */
+/* ... existing styles ... */
+
+/* Container adjustments */
+.container {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Logo and Header Text */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    cursor: pointer;
+}
+
+.header-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: #007BFF;
+    margin: 0;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+/* Navigation adjustments */
+.navigation ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    margin: 0 20px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+    color: #ff5733;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: -200px;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 200px;
+        height: 100%;
+        flex-direction: column;
+        text-align: center;
+        transition: left 0.3s ease;
+        z-index: 1001;
+    }
+
+    .navigation.show {
+        left: 0;
+    }
+}
+
+/* Search container */
+.search-container {
+    position: fixed;
+    top: 45%; /* Adjusted to be slightly higher on the page */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1001;
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.search-container form:hover {
+    transform: scale(1.05);
+}
+
+.search-container input[type="text"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    width: 300px;
+    outline: none;
+    transition: width 0.3s ease-in-out;
+}
+
+.search-container input[type="text"]:focus {
+    width: 350px;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Changed to blue */
+    color: white;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.search-container button:active {
+    transform: scale(0.95);
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1002; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

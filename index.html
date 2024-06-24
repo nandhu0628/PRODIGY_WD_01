@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>N search tool</title>
+  <link rel="shortcut icon" href="./assets/logo.jpeg" type="logo/jpeg">    
+  </head>
+  <body>
+    
+    <div id="mySidepanel" class="sidepanel">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="https://www.instagram.com/_inandhu_?igsh=czgxcWEzM21nb3Jt" target="_blank">Instagram</a>
+      <a href="https://x.com/Nandhu0624?t=k_9czaNQFpcIJN2OTk4lHg&s=09">X</a>
+      <a href="https://www.linkedin.com/in/nandhakumar-krishnamoorthy-50571a189?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Linked In</a>
+    </div>
+    <div class="container">
+      <!-- Logo and Header -->
+      <div class="logo">
+        <img src="./assets/logo.jpeg" alt="Logo" />
+        <h1 class="header-text">NANDHU</h1>
+      </div>
+      <!-- Navigation -->
+      <nav class="navigation">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="https://www.canva.com" target="_blank">About</a></li>
+          <li><a href="javascript:void(0)" id="servicesBtn">Services</a></li>
+          <li><a href="javascript:void(0)" id="contactBtn" onclick="openNav()">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Hamburger Icon -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="background-image"></div>
+
+    <!-- Search Form -->
+    <div class="search-container">
+      <form id="searchForm" action="https://www.google.com/search" method="get">
+        <input type="text" name="q" placeholder="Search..." required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="servicesModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Our Services</h2>
+        <p>At Prodigy Infotech, we provide innovative web development solutions tailored to your needs. Our expert team ensures high-quality, responsive, and user-friendly websites. We strive to exceed your expectations and help your business thrive in the digital world.</p>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
